@@ -100,11 +100,16 @@ bool isPalindromeLoop(std::string str) {
 }
 //recursive solution to check if a string is a palindrome
 bool isPalindrome(std::string str) {
-	
-	return true;
+	if(str.length()==0){
+		return true;
+	}
+	if(str.at(0) == str.at(str.length() - 1)){
+		return isPalindrome(str.substr(1, str.length() - 2));
+	}
+	return false;
 }
 
 int main() {
-   std::cout<<isPalindrome(std::string{"abab"});
+   std::cout<<isPalindrome(std::string{"ababa"});
    return 0;
 }
