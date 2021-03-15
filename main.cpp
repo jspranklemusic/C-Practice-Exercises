@@ -44,6 +44,7 @@ std::vector<int> noOdds(std::vector<int> arr) {
 };
 
 //this function accepts two arrays. checks if the next element
+
 //of array 2 is equal to the previous element of array 1.
 bool simonSays(std::vector<int> arr1, std::vector<int> arr2) {
 	for(int i=0; i<arr1.size()-1;i++){
@@ -53,7 +54,7 @@ bool simonSays(std::vector<int> arr1, std::vector<int> arr2) {
 	};
 	return true;
 };
-
+//recursively reverses a string
 std::string reverse(std::string str) {
   std::cout<<str<<" ";
 	if(str.length()==0){
@@ -72,6 +73,8 @@ int sum(std::vector<int> arr) {
 	return lastNum + sum(arr);
 }
 
+//This function accepts two arguments: 1. A string with
+//"censored" vowels, and 2. vowels to uncensor.
 std::string uncensor(std::string str, std::string vowels) {
 	int num_censored {0};
   std::string new_string {""};
@@ -86,7 +89,17 @@ std::string uncensor(std::string str, std::string vowels) {
   return new_string;
 };
 
+//loop based solution to check if a string is a palindrome
+bool isPalindrome(std::string str) {
+	for(int i=0; i<str.length()/2;i++){
+		if(str[i]!=str[str.length()-1-i]){
+			return false;
+		}
+	};
+	return true;
+}
+
 int main() {
-   std::cout<<uncensor(std::string {"H#ll#!"},std::string {"eo"});
+   std::cout<<isPalindrome(std::string{"abab"});
    return 0;
 }
