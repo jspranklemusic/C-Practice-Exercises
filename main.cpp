@@ -90,12 +90,17 @@ std::string uncensor(std::string str, std::string vowels) {
 };
 
 //loop based solution to check if a string is a palindrome
-bool isPalindrome(std::string str) {
+bool isPalindromeLoop(std::string str) {
 	for(int i=0; i<str.length()/2;i++){
 		if(str[i]!=str[str.length()-1-i]){
 			return false;
 		}
 	};
+	return true;
+}
+//recursive solution to check if a string is a palindrome
+bool isPalindrome(std::string str) {
+	
 	return true;
 }
 
