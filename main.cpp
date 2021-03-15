@@ -128,6 +128,6 @@ int fibonacci(int num) {
 }
 
 int main() {
-   std::cout<<fibonacci(1);
+   std::cout<<fibonacci(1000);
    return 0;
 }
