@@ -4,6 +4,7 @@
 #include "add.h"
 #include <stdio.h> 
 #include <math.h>
+#include <regex>
 
 //checks if it is a palindrome?
   bool isPalindrome(int x) {
@@ -149,7 +150,43 @@ bool cons(std::vector<int> arr) {
 	return true;
 };
 
+//checks if a string is a valid hex code
+bool isValidHexCode(std::string str) {
+	auto const myRegex = std::regex("(#)[a-zA-z0-9]{6}");
+	return std::regex_search(str, myRegex);
+};
+
+//FROM LEETCODE: twoSum. Accept an array of numbers, and return the indices of the numbers which add up to the target.
+ std::vector<int> twoSum(std::vector<int>& nums, int target) {
+      int ind1;
+      int ind2;
+        for(int i=0;i<nums.size();i++){
+            for(int j=0;j<nums.size();j++){
+                if(i!=j){
+                    if(nums[i]+nums[j]==target){
+                        ind1 = i;
+                        ind2 = j;
+                    }
+                }
+            }
+        }
+        return std::vector<int>{ind1,ind2};
+    };
+
+
+
 int main() {
-   std::cout<<cons(std::vector<int>{1,2,33});
+    std::vector<int> arr{1,2,3};
+    std::vector<int> twoSumArr = twoSum(arr,int {4});
+    std::cout<<twoSumArr[0]<<","<<twoSumArr[1];
    return 0;
 }
+
+//1st step: make a regex
+    // auto const regex2 = std::regex("[A-Z]");
+
+    //2nd step: make a string:
+    // std::string myString{"hello!"};
+
+    //3rd step: compare the two. 
+    // std::cout<<std::regex_search(myString,regex2)<<std::endl;
