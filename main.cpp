@@ -109,7 +109,25 @@ bool isPalindrome(std::string str) {
 	return false;
 }
 
+//returns the fibbonaci number from the given index
+int fibonacci(int num) {
+	int first{0};
+	int second{1};
+	int sum {1};
+	
+	//first, the two values are added.
+	//the first becomes the second, the second becomes the sum.
+	//this occurs n times, with n being the function argument.
+	
+	for(int i=0;i<num;i++){
+		sum = first + second;
+		first = second;
+		second = sum;
+	};
+	return sum;
+}
+
 int main() {
-   std::cout<<isPalindrome(std::string{"ababa"});
+   std::cout<<fibonacci(1);
    return 0;
 }
