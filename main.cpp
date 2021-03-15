@@ -127,7 +127,29 @@ int fibonacci(int num) {
 	return sum;
 }
 
+//Checks if an array can be sorted into consecutive, non-repeating numbers
+bool cons(std::vector<int> arr) {
+  if(arr.size()==0) return false;
+	int i = 1;
+	while( i < arr.size()){
+		int j = i;
+			while( j > 0 and arr[j-1] > arr[j]){
+				int swap = arr[j];
+				arr[j] = arr[j-1];
+				arr[j-1] = swap;
+					j--;
+			}
+			i++;
+	};
+  for(int i=1;i<arr.size();i++){
+    if(arr.at(i)==arr.at(i-1)||arr.at(i)!=arr.at(i-1)+1){
+      return false;
+    }
+  }
+	return true;
+};
+
 int main() {
-   std::cout<<fibonacci(1000);
+   std::cout<<cons(std::vector<int>{1,2,33});
    return 0;
 }
